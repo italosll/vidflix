@@ -34,35 +34,33 @@ function CadastroCategoria() {
   }
 
   useEffect(() => {
-
-    const URL_TOP = 'http://localhost:8080/categorias'
+    const URL_TOP = 'http://localhost:8080/categorias';
     fetch('URL_TOP')
-    .then( async (respostaDoServidor) => {
-      const resposta = await respostaDoServidor.json();
-      setCategorias([
-        ...resposta,
-      ]);   
-    });
-
+      .then(async (respostaDoServidor) => {
+        const resposta = await respostaDoServidor.json();
+        setCategorias([
+          ...resposta,
+        ]);
+      });
 
     // setTimeout(() => {
     //   setCategorias([
     //     ...categorias,
-        // {
-        //   id: 1,
-        //   nome: 'Front End',
-        //   descricao: 'Uma Categoria qualquer',
-        //   cor: '#cdb1ff',
-        // },
-        // {
-        //   id: 2,
-        //   nome: 'Back End',
-        //   descricao: 'Uma Categoria qualquer',
-        //   cor: '#cdb1ff',
-        // },
+    // {
+    //   id: 1,
+    //   nome: 'Front End',
+    //   descricao: 'Uma Categoria qualquer',
+    //   cor: '#cdb1ff',
+    // },
+    // {
+    //   id: 2,
+    //   nome: 'Back End',
+    //   descricao: 'Uma Categoria qualquer',
+    //   cor: '#cdb1ff',
+    // },
 
-      ]);
-    }, 4 * 1000);
+    // ]);
+    // }, 4 * 1000);
   }, []);
 
   return (
