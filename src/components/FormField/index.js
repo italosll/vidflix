@@ -35,36 +35,38 @@ transition: .1s ease-in-out;
 `;
 
 const Input = styled.input`
-    background: #53585D;
-    color: #F5F5F5;
-    display: block;
-    width: 100%;
-    height:57px;
-    font-size: 18px;
+  background: #53585D;
+  color: #F5F5F5;
+  display: block;
+  width: 100%;
+  height:57px;
+  font-size: 18px;
 
-    outline:0;
-    border:0;
-    border-top: 4px solid transparent;
-    border-bottom: 4px solid #53585D;
+  outline:0;
+  border:0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid #53585D;
 
-    padding: 16px 16px;
-    margin-bottom:45px;
+  padding: 16px 16px;
+  margin-bottom:45px;
 
-    resize: none;
-    border-radius: 4px;
-    transition: border-color .3s;
+  resize: none;
+  border-radius: 4px;
+  transition: border-color .3s;
 
-    &:focus{
-        border-bottom-color: var(--primary);
-    }
+  &:focus{
+      border-bottom-color: var(--primary);
+  }
 
+  &:focus:not([type="color"]) + span{
+      transform: scale(.6) translateY(-10px);
+  }
 
-
-    ${({ hasValue }) => hasValue && css`
-            &:focus:not([type="color"]) + span {
-            transform: scale(.6) translateY(-10px); 
-        }
-        `}
+  ${({ hasValue }) => hasValue && css`
+          &:not([type="color"]) + span{
+              transform: scale(.6) translateY(-10px);
+          }        
+    `}
 `;
 
 function FormField({
@@ -88,6 +90,7 @@ function FormField({
           type={type}
           value={value}
           name={name}
+          hasValue={hasValue}
           onChange={onChange}
         />
         <Label.Text>
